@@ -1,6 +1,6 @@
 namespace GeoSharp.Operations;
 
-using GeoSharp.Functions;
+using GeoSharp;
 using System;
 using static FunctionUtil;
 
@@ -20,5 +20,5 @@ public class Pow : Function
     => v * (u ^ (v - 1)) * u.Derive() + (u ^ v) * ln(u) * v.Derive();
   
   public override string ToString() 
-    => $"({u}^{v})";
+    => $"({u}^({v}))";
 }

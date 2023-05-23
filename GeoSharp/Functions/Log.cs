@@ -1,6 +1,7 @@
 namespace GeoSharp.Functions;
 
 using System;
+using GeoSharp;
 using static FunctionUtil;
 
 public class Log : Function

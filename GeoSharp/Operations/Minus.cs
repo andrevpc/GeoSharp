@@ -1,5 +1,6 @@
 namespace GeoSharp.Operations;
 using Functions;
+using GeoSharp;
 
 public class Minus : Function //errado
 {

@@ -1,5 +1,6 @@
 namespace GeoSharp.Operations;
 using Functions;
+using GeoSharp;
 using System.Collections.Generic;
 using System.Linq;
 

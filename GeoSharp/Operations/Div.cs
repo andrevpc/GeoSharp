@@ -3,6 +3,7 @@ using System.Collections.Generic;
 namespace GeoSharp.Operations;
 
 using Functions;
+using GeoSharp;
 using System.Linq;
 
 public class Div : Function

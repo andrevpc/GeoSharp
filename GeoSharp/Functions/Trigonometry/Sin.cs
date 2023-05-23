@@ -1,6 +1,7 @@
 namespace GeoSharp.Functions.Trigonometry;
 
 using System;
+using GeoSharp;
 using static FunctionUtil;
 
 public class Sin : Function
