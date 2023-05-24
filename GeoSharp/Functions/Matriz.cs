@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GeoSharp.Functions.Matriz;
 
@@ -6,17 +7,30 @@ public class Matriz
 {
     public int Linha { get; set; }
     public int Coluna { get; set; }
-    public int[][] Valores { get; set; }
+    public Function[][] Valores { get; set; }
     public Matriz(int row, int col)
     {
         this.Linha = row;
         this.Coluna = col;
-        int[][] matrix = new int[this.Linha][];
+        Function[][] matrix = new Function[this.Linha][];
         for (int i = 0; i < this.Linha; i++)
         {
-            matrix[i] = new int[this.Coluna];
+            matrix[i] = new Function[this.Coluna];
         }
         this.Valores = matrix;
+    }
+    public Matriz(Function[][] matriz)
+    {
+        this.Linha = matriz.Length;
+        this.Coluna = matriz[0].Length;
+
+        foreach (var row in matriz)
+        {
+            if (row.Length != Coluna)
+                throw new Exception();
+        }
+
+        this.Valores = matriz;
     }
 
     public static Matriz Transposta(Matriz mat)
@@ -55,7 +69,7 @@ public class Matriz
         {
             for (int j = 0; j < mat.Coluna; j++)
             {
-                newMatrix.Valores[i][j] = 0;
+                newMatrix.Valores[i][j] = new Constant(0);
             }
         }
         return newMatrix;
@@ -72,9 +86,9 @@ public class Matriz
             for (int j = 0; j < mat.Coluna; j++)
             {
                 if (i == j)
-                    newMatrix.Valores[i][j] = 1;
+                    newMatrix.Valores[i][j] = new Constant(1);
                 else
-                    newMatrix.Valores[i][j] = 0;
+                    newMatrix.Valores[i][j] = new Constant(0);
             }
         }
         return newMatrix;
@@ -97,7 +111,7 @@ public class Matriz
         {
             for (int j = 0; j < this.Coluna; j++)
             {
-                if ((i == j && this.Valores[i][j] != 1) || (i != j && this.Valores[i][j] != 0))
+                if ((i == j && this.Valores[i][j] != new Constant(1)) || (i != j && this.Valores[i][j] != new Constant(0)))
                 {
                     id = false;
                     break;
@@ -117,7 +131,7 @@ public class Matriz
             for (int j = 0; j < mat.Coluna; j++)
             {
                 if (i != j)
-                    newMatrix.Valores[i][j] = 0;
+                    newMatrix.Valores[i][j] = new Constant(0);
             }
         }
         return newMatrix;
@@ -132,7 +146,7 @@ public class Matriz
         {
             for (int j = 0; j < this.Coluna; j++)
             {
-                if (i != j && this.Valores[i][j] != 0)
+                if (i != j && this.Valores[i][j] != new Constant(0))
                 {
                     di = false;
                     break;
@@ -146,7 +160,7 @@ public class Matriz
     {
         if (!mat.IsSquare()) throw new Exception();
 
-        int valor = mat.Valores[0][0];
+        Function valor = mat.Valores[0][0];
 
         for (int i = 0; i < mat.Linha; i++)
         {
@@ -227,7 +241,7 @@ public class Matriz
         {
             for (int j = 0; j < multi.Coluna; j++)
             {
-                int soma = 0;
+                Function soma = new Constant(0);
                 for (int k = 0; k < a.Linha; k++)
                 {
                     soma += a.Valores[i][k] * b.Valores[k][j];
@@ -268,27 +282,6 @@ public class Matriz
         return newMatrix;
     }
 
-    public static Matriz Input()
-    {
-        Console.WriteLine($"Linhas: ");
-        int linha = int.Parse(Console.ReadLine());
-        Console.WriteLine($"Linhas: ");
-        int coluna = int.Parse(Console.ReadLine());
-
-        Matriz newMatrix = new Matriz(linha, coluna);
-
-        for (int i = 0; i < linha; i++)
-        {
-            for (int j = 0; j < linha; j++)
-            {
-                Console.WriteLine($"i = {i} j = {j}");
-                int inp = int.Parse(Console.ReadLine());
-                newMatrix.Valores[i][j] = inp;
-            }
-        }
-        return newMatrix;
-    }
-
     public static Matriz Aleatoria(Matriz mat)
     {
         Matriz newMatrix = Matriz.Copiar(mat);
@@ -298,7 +291,7 @@ public class Matriz
             for (int j = 0; j < mat.Coluna; j++)
             {
                 Random rand = new Random();
-                newMatrix.Valores[i][j] = rand.Next(1, 10);
+                newMatrix.Valores[i][j] = new Constant(rand.Next(1, 10));
             }
         }
         return newMatrix;
