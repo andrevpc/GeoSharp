@@ -4,6 +4,7 @@ namespace GeoSharp;
 
 using Functions;
 using GeoSharp.Functions.Trigonometry;
+using GeoSharp.Functions.Log;
 using GeoSharp.Operations;
 
 public static class FunctionUtil

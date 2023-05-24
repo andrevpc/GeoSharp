@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoSharp", "GeoSharp\GeoSharp.csproj", "{135DE873-4EF9-4B2D-91D2-92E85050991B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowCase", "..\ShowCase\ShowCase.csproj", "{AEF4E153-A93E-4E4A-AAB0-6A965B81E784}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowCase", "ShowCase\ShowCase.csproj", "{220ECE0C-3256-409A-A969-0E09F2F01372}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{135DE873-4EF9-4B2D-91D2-92E85050991B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{135DE873-4EF9-4B2D-91D2-92E85050991B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{135DE873-4EF9-4B2D-91D2-92E85050991B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AEF4E153-A93E-4E4A-AAB0-6A965B81E784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AEF4E153-A93E-4E4A-AAB0-6A965B81E784}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AEF4E153-A93E-4E4A-AAB0-6A965B81E784}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AEF4E153-A93E-4E4A-AAB0-6A965B81E784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{220ECE0C-3256-409A-A969-0E09F2F01372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220ECE0C-3256-409A-A969-0E09F2F01372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220ECE0C-3256-409A-A969-0E09F2F01372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220ECE0C-3256-409A-A969-0E09F2F01372}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
