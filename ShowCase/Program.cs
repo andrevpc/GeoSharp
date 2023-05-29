@@ -1,4 +1,6 @@
-﻿//using static GeoSharp.FunctionUtil;
+﻿using static GeoSharp.FunctionUtil;
+using GeoSharp.Functions;
+using GeoSharp;
 
 ////var f = sin(x) * sin(x) + cos(x) * cos(x);
 
@@ -8,12 +10,6 @@
 //f = f.Derive();
 //Console.WriteLine("f(x) = " + f + "\nf(10) = " + f[10]);
 
-
-using GeoSharp.Functions.Matriz;
-
-Matriz matrix = new Matriz(3, 3);
-matrix = Matriz.Aleatoria(matrix);
-Console.WriteLine(matrix);
 
 // Console.WriteLine(Matriz.Transposta(matrix));
 
@@ -53,6 +49,24 @@ Console.WriteLine(matrix);
 
 // Console.WriteLine(matrix - Matriz.Identidade(matrix));
 
-Matriz matrix1 = Matriz.Aleatoria(matrix);
+using GeoSharp.Functions.Matrix;
+
+Function[][] mat = new Function[][] {
+    new Function[] { sin(x), tg(x), cos(x) },
+    new Function[] { new Constant(10), x, x },
+    new Function[] { x, x, x }
+};
+
+Matrix matrix = new Matrix
+{
+    { sin(x), tg(x), cos(x) },
+    { new Constant(10), x, x },
+    { x, x, x }
+};
+Console.WriteLine(matrix);
+
+Matrix matrix1 = Matrix.Random(matrix);
 Console.WriteLine(matrix1);
-Console.WriteLine(matrix * matrix1);
+Matrix result = matrix * matrix1;
+Console.WriteLine(result);
+Console.WriteLine(result[4]);

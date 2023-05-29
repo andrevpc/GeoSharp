@@ -8,7 +8,7 @@ using System.Linq;
 
 public class Div : Function
 {
-  private List<Function> funcs = new List<Function>();
+  private readonly List<Function> funcs = new();
   public void Add(Function func)
     => this.funcs.Add(func);
 
@@ -26,8 +26,8 @@ public class Div : Function
   {
     if (this.funcs.Count() > 2)
         {
-            Function v = funcs[funcs.Count() - 1];
-            Div u = new Div();
+            Function v = funcs[funcs.Count - 1];
+            Div u = new();
             foreach (var f in this.funcs.SkipLast(1))
                 u.Add(f);
 
@@ -47,6 +47,6 @@ public class Div : Function
     foreach (var f in this.funcs)
       str += f.ToString() + " / ";
 
-    return str.Substring(0, str.Length - 3);
+    return str[..^3];
   }
 }
